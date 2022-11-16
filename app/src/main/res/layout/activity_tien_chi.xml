@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <Button
+        android:id="@+id/btn_tienchi"
+        android:layout_width="121dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#C294FB"
+        android:text="Tiền chi"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_tienthu"
+        android:layout_width="109dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="92dp"
+        android:backgroundTint="#D9BDFB"
+        android:text="Tiền thu"
+        android:textAllCaps="false"
+        android:textColor="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="84dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="407dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="208dp"
+        android:background="#ECE2FA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="184dp"
+        android:background="#E3E2E2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="480dp"
+        android:background="#E3E2E2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/datePick_tienchi"
+        android:layout_width="187dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/bg_datepick"
+        android:gravity="center"
+        android:hint="Chọn ngày"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nhapghichu"
+        android:layout_width="316dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="248dp"
+        android:background="@drawable/bg_money"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Ghi danh mục"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nhaptienchi"
+        android:layout_width="316dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="336dp"
+        android:background="@drawable/bg_money"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Nhập tiền chi"
+        android:inputType="number"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/nhapkhoanchi"
+        android:layout_width="339dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="#A561FA"
+        android:text="Nhập khoản chi"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="417dp"
+        android:layout_height="68dp"
+        android:background="#D9BDFB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageButton
+            android:id="@+id/imageButtonNhap_chi"
+            android:layout_width="62dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
+            android:background="@color/purple_200"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/nhap" />
+
+        <ImageButton
+            android:id="@+id/imageButtonLich_chi"
+            android:layout_width="65dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="1dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/lich" />
+
+        <ImageButton
+            android:id="@+id/imageButtonBaoCao_chi"
+            android:layout_width="65dp"
+            android:layout_height="51dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="129dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/baocao" />
+
+        <ImageButton
+            android:id="@+id/imageButtonKhac_chi"
+            android:layout_width="65dp"
+            android:layout_height="51dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="36dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/khac" />
+
+        <TextView
+            android:id="@+id/textNhap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="49dp"
+            android:layout_marginBottom="1dp"
+            android:text="Nhập"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textLich"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="141dp"
+            android:layout_marginBottom="2dp"
+            android:text="Lịch"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textBaocao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="135dp"
+            android:layout_marginBottom="1dp"
+            android:text="Báo cáo"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textKhac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="1dp"
+            android:text="Khác"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
