@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 import java.util.Date;
 
 public class myDB extends SQLiteOpenHelper {
-    public myDB(@Nullable Context context) {
-        super(context, "login.db", null, 1);
+    public myDB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
     }
     // query not return result
     public void queryData(String sqlQuery) {
@@ -21,14 +21,16 @@ public class myDB extends SQLiteOpenHelper {
         db.execSQL(sqlQuery);
     }
     // query return result
-    public Cursor getData(String sqlQuery , String whereClause) {
+    public Cursor getData(String sqlQuery) {
         SQLiteDatabase db = getReadableDatabase();
-        return db.rawQuery(sqlQuery ,new String[] {whereClause});
+        return db.rawQuery(sqlQuery, null);
     }
     @Override
     public void onCreate(SQLiteDatabase mydb) {
-           mydb.execSQL("create table if not exists users(userId int primary key autoincrement , username varchar(20) unique, password varchar(20) , email vachar(20) , number varchar(20) )");
-           mydb.execSQL("create table if not exists userInfor(userInfor userId int , ngaythang varchar(20) , note varchar(20) , money int , foreign key (userId) references users(userId))");
+    }
+    public void taoBang() {
+        queryData("create table if not exists users(userId INTEGER primary key autoincrement , username varchar(20) unique, password varchar(20) , email vachar(20) , number varchar(20) )");
+        queryData("create table if not exists thuchis(thuchiId INTEGER PRIMARY KEY AUTOINCREMENT , ngaythang varchar(20) , note varchar(20) , money int , trangthai_thuchi INTEGER,userId INTEGER, foreign key (userId) references users(userId))");
     }
     @Override
     public void onUpgrade(SQLiteDatabase mydb, int i, int i1) {
@@ -48,17 +50,19 @@ public class myDB extends SQLiteOpenHelper {
         }else
             return true;
     }
-    public Boolean insertUserInfor(String date , String ghichu , int tienChi ) {
+    public Boolean insertThuChis(String date , String ghichu , int tienChi, int trangthai_thuchi, String userId ) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues data = new ContentValues();
         data.put("ngaythang" , date);
         data.put("note" , ghichu);
         data.put("money" , tienChi);
-        long result = db.insert("userInfor" ,null , data);
+        data.put("trangthai_thuchi" , trangthai_thuchi);
+        data.put("userId" , Integer.parseInt(userId));
+        long result = db.insert("thuchis" ,null , data);
         if(result == -1) {
             return false;
         }else{
-            Log.d("error", "userInfor: " + date +" " +  ghichu +" " + tienChi);
+            Log.d("error", "thuchis: " + date +" " +  ghichu +" " + tienChi);
             return true;
         }
     }

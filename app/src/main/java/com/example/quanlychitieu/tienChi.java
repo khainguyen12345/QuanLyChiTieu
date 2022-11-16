@@ -17,7 +17,7 @@ public class tienChi extends AppCompatActivity {
     Button buttonChi ,nhapKhoanchi , buttonThu ;
     ImageButton enterButton , calendarButton , reportButton , otherButton;
     TextView ngay , ghichu , tienchi;
-    myDB myDB;
+
     Calendar calendar = Calendar.getInstance();
     public int DAY = calendar.get(Calendar.DATE);
     public int MONTH = calendar.get(Calendar.MONTH);
@@ -60,6 +60,5 @@ public class tienChi extends AppCompatActivity {
         ngay = (TextView) findViewById(R.id.datePick_tienchi);
         ghichu = (TextView) findViewById(R.id.nhapghichu);
         tienchi = (TextView) findViewById(R.id.nhaptienchi);
-        myDB = new myDB(this);
     }
 }

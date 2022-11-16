@@ -25,7 +25,8 @@ public class Money_earned extends AppCompatActivity {
     Button buttonChi ,nhapKhoanchi , buttonThu ;
     ImageButton enterButton , calendarButton , reportButton , otherButton;
     TextView ngay , ghichu , tienchi;
-    myDB myDB;
+    private PreferenceManager preferenceManager;
+
     Calendar calendar = Calendar.getInstance();
     public int DAY = calendar.get(Calendar.DATE);
     public int MONTH = calendar.get(Calendar.MONTH);
@@ -35,6 +36,7 @@ public class Money_earned extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_money_earned);
         findView();
+        preferenceManager = new PreferenceManager(getApplicationContext());
         buttonThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +75,7 @@ public class Money_earned extends AppCompatActivity {
                     Toast.makeText(Money_earned.this, "Please enter all", Toast.LENGTH_SHORT).show();
                 }else{
                     int tien = Integer.parseInt(getTienchi);
-                    Boolean insertData = myDB.insertUserInfor(getNgay,getGhichu , tien);
+                    Boolean insertData = MainActivity.mydb.insertThuChis(getNgay,getGhichu , tien, 0, preferenceManager.getString("userId"));
                     if(insertData == true) {
                         Toast.makeText(Money_earned.this, "Insert Succesfull", Toast.LENGTH_SHORT).show();
                     }else{
@@ -104,6 +106,5 @@ public class Money_earned extends AppCompatActivity {
         ngay = (TextView) findViewById(R.id.datePick_tienchi);
         ghichu = (TextView) findViewById(R.id.nhapghichu);
         tienchi = (TextView) findViewById(R.id.nhaptienchi);
-        myDB = new myDB(this);
     }
 }

@@ -14,12 +14,15 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     EditText username , password ,number , email;
     Button sigin , sigup;
-    myDB mydb;
+    public static myDB mydb;
+    private PreferenceManager preferenceManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findView();
+        mydb.taoBang();
+        preferenceManager = new PreferenceManager(getApplicationContext());
 
         sigup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
                        Boolean insert =  mydb.insertData(user , pass ,num , em);
                        if(insert == true) {
                            Toast.makeText(MainActivity.this, "Sig In Successfull", Toast.LENGTH_SHORT).show();
+                           Cursor cursor = MainActivity.mydb.getData("SELECT * FROM users where username = "+user);
+                           while (cursor.moveToNext()){
+                               preferenceManager.putString("userId", cursor.getString(0));
+                               preferenceManager.putString("username", cursor.getString(1));
+                               preferenceManager.putString("email", cursor.getString(3));
+                           }
                            Intent intent = new Intent(getApplicationContext() ,Money_earned.class);
                            startActivity(intent);
                        }else{
@@ -67,6 +76,6 @@ public class MainActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         sigin = (Button) findViewById(R.id.sigin);
         sigup = (Button) findViewById(R.id.sigup);
-        mydb = new myDB(this);
+        mydb = new myDB(this, "QuanLyChiTieu.sqlite", null, 1);
     }
 }
